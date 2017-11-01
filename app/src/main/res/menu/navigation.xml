@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_recipes"
+        android:icon="@drawable/ic_local_dining"
+        android:title="@string/navigation_recipes_text" />
+
+    <item
+        android:id="@+id/navigation_timer"
+        android:icon="@drawable/ic_egg_timer2"
+        android:title="@string/navigation_timer_text" />
+
+    <item
+        android:id="@+id/navigation_info"
+        android:icon="@drawable/ic_info_outline"
+        android:title="@string/navigation_info_text" />
+
+</menu>
