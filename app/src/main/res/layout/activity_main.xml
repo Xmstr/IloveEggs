@@ -13,8 +13,6 @@
         android:layout_above="@+id/navigation_bar"
 
         >
-
-
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView

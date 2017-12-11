@@ -6,4 +6,23 @@
     <string name="navigation_recipes_text">РЕЦЕПТЫ</string>
     <string name="navigation_timer_text">ТАЙМЕР</string>
     <string name="navigation_info_text">ИНФО</string>
+    <string name="start_boil_button_text">Начать варку!</string>
+    <string name="main_timer_text">00:00</string>
+    <string name="how_to_cook_egg_text">Как сварить яйцо?</string>
+    <string name="reset_timer_button_text">Cбросить таймер</string>
+    <string name="start_timer_button_text">НАЧАТЬ ВАРКУ!</string>
+    <string name="zero_timer_text">0:00</string>
+
+    <string-array name="type_of_cook">
+        <item>"Всмятку"</item>
+        <item>"В мешочек"</item>
+        <item>"Вкрутую</item>
+        <item>"Вкрутую твердо"</item>
+    </string-array>
+    <string-array name="description_of_cook">
+        <item>Яйцо всмятку будет будет будет будет 100 градусов</item>
+        <item>Яйцо в мешочек будет будет будет будет 100 градусов</item>
+        <item>Яйцо вкрутую будет будет будет будет 100 градусов</item>
+        <item>Яйцо вкрутую твердо будет будет будет будет 100 градусов</item>
+    </string-array>
 </resources>

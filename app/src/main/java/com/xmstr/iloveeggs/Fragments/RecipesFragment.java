@@ -16,10 +16,11 @@ import com.xmstr.iloveeggs.R;
 public class RecipesFragment extends Fragment {
 
     private static final String ARG_TEXT = "arg_text";
+    public static final String TAG = "tag:recipes";
 
 
-    public static Fragment newInstance(String name) {
-        Fragment frag = new RecipesFragment();
+    public static RecipesFragment newInstance(String name) {
+        RecipesFragment frag = new RecipesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEXT, name);
         frag.setArguments(args);

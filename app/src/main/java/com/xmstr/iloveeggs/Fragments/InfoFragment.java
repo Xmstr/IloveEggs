@@ -15,11 +15,13 @@ import com.xmstr.iloveeggs.R;
 
 public class InfoFragment extends Fragment {
 
+    public static final String TAG = "tag:info";
+
     private static final String ARG_TEXT = "arg_text";
 
 
-    public static Fragment newInstance(String name) {
-        Fragment frag = new InfoFragment();
+    public static InfoFragment newInstance(String name) {
+        InfoFragment frag = new InfoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEXT, name);
         frag.setArguments(args);
