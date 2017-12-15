@@ -21,6 +21,8 @@ import com.xmstr.iloveeggs.interfaces.TimerCallbacks;
 
 import java.util.Locale;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 /**
  * Created by Xmstr.
  */
@@ -33,8 +35,9 @@ public class TimerFragment extends Fragment {
     TextView typeOfCookTextView;
     TextView descriptionOfEggTypeTextView;
     TextView timerTextView;
+    TextView timerPrevTextView;
     ImageView picOfEgg;
-    Button startTimerButton;
+    FancyButton startTimerButton;
     CountDownTimer eggCountDownTimer;
     Boolean counterIsActive = false;
     int currentBoilTime = 5000;
@@ -45,10 +48,11 @@ public class TimerFragment extends Fragment {
     private static final String ARG_TEXT = "arg_text";
 
     // LIST OF BOIL TIMES
-    public final int BOIL_TIME_1 = 50000;
-    public final int BOIL_TIME_2 = 7000;
-    public final int BOIL_TIME_3 = 90000;
-    public final int BOIL_TIME_4 = 160000;
+    public final int BOIL_TIME_1 = 210000;
+    public final int BOIL_TIME_2 = 360000;
+    public final int BOIL_TIME_3 = 540000;
+    public final int BOIL_TIME_4 = 660000;
+    public final int BOIL_TIME_TEST = 7000;
 
     public static TimerFragment newInstance(String name) {
         TimerFragment frag = new TimerFragment();
@@ -73,7 +77,7 @@ public class TimerFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (counterIsActive)
-            updateTimer((int)currentTimeLeft);
+            updateTimerText((int)currentTimeLeft);
     }
 
     public TimerFragment() {
@@ -86,12 +90,14 @@ public class TimerFragment extends Fragment {
 
         resources = getResources();
 
-        // ALL INFO PANEL INITIALIZING
+        // ALL UI INITIALIZING
         typeOfCookTextView = rootView.findViewById(R.id.textView_typeOfCook);
         descriptionOfEggTypeTextView = rootView.findViewById(R.id.textView_descriptionOfCook);
         picOfEgg = rootView.findViewById(R.id.imageView_eggPic);
         startTimerButton = rootView.findViewById(R.id.buttonStartTimer);
+        //startTimerButton = new FancyButton(getContext());
         timerTextView = rootView.findViewById(R.id.textView_timer);
+        timerPrevTextView = rootView.findViewById(R.id.textView_timerPrevText);
 
         // SEEKBAR
         eggSeekBar = rootView.findViewById(R.id.seekBar);
@@ -124,42 +130,53 @@ public class TimerFragment extends Fragment {
 
         if (counterIsActive) {
             setControlsLocked(true);
+            timerPrevTextView.setText(R.string.timer_prev_text_running);
+        }
+        else {
+            timerPrevTextView.setText(R.string.timer_prev_text_default);
         }
 
         return rootView;
     }
 
+    // TIMER
+
     public void controlTimer() {
         if (!counterIsActive) {
             counterIsActive = true;
             setControlsLocked(true);
+            timerPrevTextView.setText(R.string.timer_prev_text_running);
             eggCountDownTimer = new CountDownTimer(currentBoilTime + 50, 1000) {
                 @Override
                 public void onTick(long millsUntilFinished) {
                     Log.i("TIMER", "Timer ticked");
-                    updateTimer((int) millsUntilFinished);
+                    updateTimerText((int) millsUntilFinished);
                     currentTimeLeft = millsUntilFinished;
                 }
 
                 @Override
                 public void onFinish() {
                     timerCallbacks.onTimerFinished();
+                    timerPrevTextView.setText(R.string.timer_prev_text_finish);
                     Log.i("TIMER", "Timer finished");
                     resetTimer();
                 }
             }.start();
         } else {
             resetTimer();
+            timerPrevTextView.setText(R.string.timer_prev_text_reset);
         }
     }
+
+    // END OF TIMER
 
     private void setControlsLocked(boolean isControlsLocked) {
         if (isControlsLocked) {
             eggSeekBar.setEnabled(false);
-            startTimerButton.setText(R.string.reset_timer_button_text);
+            startTimerButton.setText(resources.getString(R.string.reset_timer_button_text));
         } else {
             eggSeekBar.setEnabled(true);
-            startTimerButton.setText(R.string.start_timer_button_text);
+            startTimerButton.setText(resources.getString(R.string.start_timer_button_text));
         }
 
     }
@@ -171,20 +188,22 @@ public class TimerFragment extends Fragment {
         startTimerButton.setEnabled(false);
         timerTextView.setTextColor(resources.getColor(android.R.color.holo_red_dark));
         timerTextView.setText(R.string.zero_timer_text);
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 timerTextView.setTextColor(resources.getColor(android.R.color.black));
-                updateTimer(currentBoilTime);
+                updateTimerText(currentBoilTime);
                 setControlsLocked(false);
                 startTimerButton.setEnabled(true);
+                timerPrevTextView.setText(R.string.timer_prev_text_default);
             }
         }, 1500);
 
     }
 
-    public void updateTimer(int secondsLeft) {
+    public void updateTimerText(int secondsLeft) {
         // Приводим к секундам
         secondsLeft = secondsLeft / 1000;
 
@@ -212,32 +231,35 @@ public class TimerFragment extends Fragment {
             case 0:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 currentBoilTime = BOIL_TIME_1;
-                updateTimer(currentBoilTime);
+                updateTimerText(currentBoilTime);
                 typeOfCookTextView.setText(cookTypeArray[0]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[0]);
+                picOfEgg.setImageResource(R.drawable.egg1_done);
                 break;
             case 1:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
-                currentBoilTime = BOIL_TIME_2;
-                updateTimer(currentBoilTime);
+                // TESTING BOIL TIME
+                currentBoilTime = BOIL_TIME_TEST;
+                updateTimerText(currentBoilTime);
                 typeOfCookTextView.setText(cookTypeArray[1]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[1]);
+                picOfEgg.setImageResource(R.drawable.egg2_done);
                 break;
             case 2:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 currentBoilTime = BOIL_TIME_3;
-                updateTimer(currentBoilTime);
+                updateTimerText(currentBoilTime);
                 typeOfCookTextView.setText(cookTypeArray[2]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[2]);
-
+                picOfEgg.setImageResource(R.drawable.egg3_done);
                 break;
             case 3:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 currentBoilTime = BOIL_TIME_4;
-                updateTimer(currentBoilTime);
+                updateTimerText(currentBoilTime);
                 typeOfCookTextView.setText(cookTypeArray[3]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[3]);
-
+                picOfEgg.setImageResource(R.drawable.egg4_done);
                 break;
 
         }

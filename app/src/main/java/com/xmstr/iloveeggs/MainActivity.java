@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks{
                 }
                 tag = RecipesFragment.TAG;
                 fragment = mRecipesFragment;
-                navigation.setItemBackgroundResource(android.R.color.white);
                 break;
             case R.id.navigation_timer:
                 if (mTimerFragment == null) {
@@ -97,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks{
                 }
                 tag = TimerFragment.TAG;
                 fragment = mTimerFragment;
-                navigation.setItemBackgroundResource(R.color.colorAccent);
                 break;
             case R.id.navigation_info:
                 if (mInfoFragment == null) {
@@ -105,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks{
                 }
                 tag = InfoFragment.TAG;
                 fragment = mInfoFragment;
-                navigation.setItemBackgroundResource(android.R.color.white);
                 break;
         }
         if (fragment != null) {

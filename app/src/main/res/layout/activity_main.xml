@@ -22,7 +22,9 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:layout_alignParentBottom="true"
-        android:background="?android:attr/windowBackground"
+        app:itemIconTint="@color/icons"
+        app:itemBackground="@color/primary"
+        app:itemTextColor="@color/icons"
         app:menu="@menu/navigation" />
 
 </RelativeLayout>
