@@ -1,7 +1,11 @@
 package com.xmstr.iloveeggs;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -9,24 +13,27 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.xmstr.iloveeggs.Fragments.InfoFragment;
 import com.xmstr.iloveeggs.Fragments.RecipesFragment;
 import com.xmstr.iloveeggs.Fragments.TimerFragment;
 import com.xmstr.iloveeggs.interfaces.TimerCallbacks;
 
-public class MainActivity extends AppCompatActivity implements TimerCallbacks{
+public class MainActivity extends AppCompatActivity implements TimerCallbacks {
 
     public static final String KEY_CURRENT_ID = "key:currentId";
+    private static final int NOTIFY_ID = 1;
 
     BottomNavigationView navigation;
     private TimerFragment mTimerFragment;
     private RecipesFragment mRecipesFragment;
     private InfoFragment mInfoFragment;
+    MediaPlayer mPlayer;
+    private boolean isAppRunning;
 
     //private static String fragmentTag = "fragment";
 
@@ -71,6 +78,11 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks{
         navigation = findViewById(R.id.navigation_bar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(currentId);
+
+        // PREPARING MEDIAPLAYER
+
+        mPlayer = MediaPlayer.create(this, R.raw.ring);
+
     }
 
     @Override
@@ -130,12 +142,12 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks{
         }
     };
 
+
     @Override
-    public void onTimerFinished() {
-        Toast.makeText(this, "123", Toast.LENGTH_SHORT).show();
-        Vibrator vibrator = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
-        if (vibrator.hasVibrator()) {
-            Log.i("Vibrator","Starting vibration");
+    public void startVibration() {
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        if (vibrator != null && vibrator.hasVibrator()) {
+            Log.i("Vibrator", "Starting vibration");
             vibrator.vibrate(2000); // for 2 sec
         }
 
@@ -143,6 +155,40 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks{
 
     @Override
     public void showNotification() {
+        if (!isAppRunning) {
+            Intent notificationIntent = new Intent(this, MainActivity.class);
+            PendingIntent contentIntent = PendingIntent.getActivity(this,
+                    0,
+                    notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+            @SuppressWarnings
+                    ("deprecation") NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.setContentIntent(contentIntent)
+                    .setSmallIcon(R.drawable.ic_egg_timer)
+                    .setContentTitle(getString(R.string.notification_finish_title_text))
+                    .setContentText(getString(R.string.notification_finish_content_text))
+                    .setAutoCancel(true);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.notify(NOTIFY_ID, builder.build());
+            }
+        }
+    }
 
+    @Override
+    public void playSound() {
+        mPlayer.start();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isAppRunning = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isAppRunning = false;
     }
 }

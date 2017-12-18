@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -156,9 +155,13 @@ public class TimerFragment extends Fragment {
 
                 @Override
                 public void onFinish() {
-                    timerCallbacks.onTimerFinished();
-                    timerPrevTextView.setText(R.string.timer_prev_text_finish);
                     Log.i("TIMER", "Timer finished");
+                    timerCallbacks.startVibration();
+                    timerCallbacks.playSound();
+                    timerCallbacks.showNotification();
+                    Log.i("TIMER", "Sound played");
+                    timerCallbacks.showNotification();
+                    timerPrevTextView.setText(R.string.timer_prev_text_finish);
                     resetTimer();
                 }
             }.start();

@@ -5,6 +5,7 @@ package com.xmstr.iloveeggs.interfaces;
  */
 
 public interface TimerCallbacks {
-    void onTimerFinished();
+    void startVibration();
     void showNotification();
+    void playSound();
 }

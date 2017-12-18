@@ -16,12 +16,14 @@
     <string name="timer_prev_text_reset">Таймер был сброшен</string>
     <string name="timer_prev_text_default">Время варки после закипания:</string>
     <string name="placeholder_text">Placeholder</string>
+    <string name="notification_finish_title_text">Яйца сварились!</string>
+    <string name="notification_finish_content_text">Пора вытаскивать и охлаждать</string>
 
     <string-array name="type_of_cook">
         <item>"Всмятку"</item>
         <item>"В мешочек"</item>
         <item>"Вкрутую</item>
-        <item>"Вкрутую твердо"</item>
+        <item>"Вкрутую +"</item>
     </string-array>
     <string-array name="description_of_cook">
         <item>Приготовленный белок, желток полностью жидкий</item>
