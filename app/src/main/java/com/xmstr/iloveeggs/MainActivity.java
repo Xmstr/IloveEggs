@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks {
                         }
                     });
                     SharedPreferences.Editor editor = preferences.edit();
+                    // Поменять перед релизом на FALSE !!!
                     editor.putBoolean("firstStart", false);
                     editor.apply();
                 }
@@ -148,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks {
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         if (vibrator != null && vibrator.hasVibrator()) {
             Log.i("Vibrator", "Starting vibration");
-            vibrator.vibrate(2000); // for 2 sec
+            long[] pattern = {0, 1000, 1000, 1000, 1000};
+            vibrator.vibrate(pattern,-1);
         }
 
     }
@@ -162,8 +166,10 @@ public class MainActivity extends AppCompatActivity implements TimerCallbacks {
                     notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
             @SuppressWarnings
                     ("deprecation") NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
             builder.setContentIntent(contentIntent)
-                    .setSmallIcon(R.drawable.ic_egg_timer)
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setLargeIcon(largeIcon)
                     .setContentTitle(getString(R.string.notification_finish_title_text))
                     .setContentText(getString(R.string.notification_finish_content_text))
                     .setAutoCancel(true);

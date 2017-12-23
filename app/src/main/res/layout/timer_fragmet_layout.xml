@@ -14,6 +14,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:max="3"
         android:progress="2"
         android:thumb="@drawable/ic_egg_timer" />
@@ -34,6 +36,7 @@
         fancy:fb_borderWidth="2dp"
         fancy:fb_defaultColor="@color/accent_light"
         fancy:fb_focusColor="@color/primary_dark"
+        fancy:fb_iconResource="@drawable/ic_timer_black_24dp"
         fancy:fb_iconPosition="left"
         fancy:fb_radius="30dp"
         fancy:fb_text="@string/start_timer_button_text"

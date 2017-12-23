@@ -17,16 +17,11 @@ public class IntroActivity extends AppIntro{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SliderPage sliderPage1 = new SliderPage();
-        sliderPage1.setTitle("INTRO");
-        sliderPage1.setDescription("dasdada");
-        sliderPage1.setBgColor(getResources().getColor(R.color.colorPrimary));
+        sliderPage1.setTitle(getString(R.string.app_intro_title2));
+        sliderPage1.setDescription(getString(R.string.app_intro_description));
+        sliderPage1.setBgColor(getResources().getColor(R.color.primary));
+        sliderPage1.setImageDrawable(R.drawable.eggs_splash);
         addSlide(AppIntroFragment.newInstance(sliderPage1));
-
-        SliderPage sliderPage2 = new SliderPage();
-        sliderPage2.setTitle("Clean App Intros");
-        sliderPage2.setDescription("This library offers developers the ability to add clean app intros at the start of their apps.");
-        sliderPage2.setBgColor(getResources().getColor(R.color.colorAccent));
-        addSlide(AppIntroFragment.newInstance(sliderPage2));
 
     }
 

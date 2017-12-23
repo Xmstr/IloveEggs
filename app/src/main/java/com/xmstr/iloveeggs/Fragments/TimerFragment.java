@@ -42,13 +42,12 @@ public class TimerFragment extends Fragment {
     int currentBoilTime = 5000;
     long currentTimeLeft = 0;
     Resources resources;
-    //static int seekBarProgress = 2;
 
     private static final String ARG_TEXT = "arg_text";
 
     // LIST OF BOIL TIMES
-    public final int BOIL_TIME_1 = 210000;
-    public final int BOIL_TIME_2 = 360000;
+    public final int BOIL_TIME_1 = 180000;
+    public final int BOIL_TIME_2 = 300000;
     public final int BOIL_TIME_3 = 540000;
     public final int BOIL_TIME_4 = 660000;
     public final int BOIL_TIME_TEST = 7000;
@@ -242,7 +241,7 @@ public class TimerFragment extends Fragment {
             case 1:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 // TESTING BOIL TIME
-                currentBoilTime = BOIL_TIME_TEST;
+                currentBoilTime = BOIL_TIME_2;
                 updateTimerText(currentBoilTime);
                 typeOfCookTextView.setText(cookTypeArray[1]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[1]);

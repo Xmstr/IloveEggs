@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">I love eggs!</string>
+    <string name="navigation_recipes_text">RECIPE</string>
+    <string name="navigation_timer_text">TIMER</string>
+    <string name="navigation_info_text">INFO</string>
+    <string name="how_to_cook_egg_text">How do you want your eggs?</string>
+    <string name="reset_timer_button_text">RESET TIMER</string>
+    <string name="start_timer_button_text">START BOIL</string>
+    <string name="timer_prev_text_reset">Timer has been reset</string>
+    <string name="timer_prev_text_default">Time left after boil</string>
+    <string name="notification_finish_title_text">Eggs are done!</string>
+    <string name="notification_finish_content_text">Time to cool this eggs</string>
+    <string name="timer_prev_text_running">Finish after:</string>
+    <string name="timer_prev_text_finish">Done!</string>
+    <string name="placeholder_text">Placeholder</string>
+    <string name="recipe1">1) Take a small pot</string>
+    <string name="recipe2">2) We put eggs in it, fill it with water</string>
+    <string name="recipe3">3) Put on medium heat</string>
+    <string name="recipe4">4) When it starts to boil - turn on the timer</string>
+    <string name="recipe5">5) After cooking, cool the eggs under the tap</string>
+    <string name="recipe6">6) Done!</string>
+    <string name="advice_title">Advices:</string>
+    <string name="advice1">Puncture the blunt end of the egg with a needle so that it does not crack during cooking</string>
+    <string name="advice2">The shell will be well separated, if after boiling the eggs are stabbed, and then lowered into cold water.</string>
+    <string name="advice3">It is easy to distinguish a boiled egg from raw, without breaking the shell, if you rotate it on the table. The boiled egg will spin, and the raw egg, after making one or two turns, will stop</string>
+    <string name="recipe_title_text">Recipe of pefect eggs:</string>
+    <string name="zero_timer_text">0:00</string>
+    <string name="info_title">In 100gr of eggs:</string>
+    <string name="app_version">v. 1.0</string>
+    <string name="info_calories_title">Calories (kcal):</string>
+    <string name="info_calories_content">155-159</string>
+    <string name="info_fibre_title">Proteins (gr):</string>
+    <string name="info_fibre_content">12,7</string>
+    <string name="info_fat_title">Fats (gr):</string>
+    <string name="info_fat_content">10,9</string>
+    <string name="info_carbo_title">Carbohydrates (g):</string>
+    <string name="info_carbo_content">0,7</string>
+    <string name="info_marks_title">Labels on the egg:</string>
+    <string name="info_mark_d">Letter D:</string>
+    <string name="info_mark_d_content">Dietary egg, shelf life 7 days</string>
+    <string name="info_mark_o">Letter A:</string>
+    <string name="info_mark_o_content">Table egg, shelf life 25 days</string>
+    <string name="info_category_title">Category (second character):</string>
+    <string name="info_category_v">The highest category (B) - 75 g and more</string>
+    <string name="info_category_o">The selected egg (O) is from 65 to 74.9 g.</string>
+    <string name="info_category_1">The first category (1) is from 55 to 64.9 g.</string>
+    <string name="info_category_2">The second category (2) is from 45 to 54.9 g.</string>
+    <string name="info_category_3">The third category (3) is from 35 to 44.9 g.</string>
+    <string name="app_intro_title">Want some eggs?</string>
+    <string name="app_intro_title2">I love eggs!</string>
+    <string name="app_intro_description">The timer will help you to easily weld the eggs to the desired readiness. Use the slider and choose your own version</string>
+
+    <string-array name="type_of_cook">
+        <item>Soft boiled</item>
+        <item>"Soft boiled +</item>
+        <item>Hard boiled</item>
+        <item>Hard boiled +</item>
+    </string-array>
+    <string-array name="description_of_cook">
+        <item>Приготовленный белок, желток полностью жидкий</item>
+        <item>Приготовленный белок, центр желтка жидкий</item>
+        <item>Твердый белок, мягкий желток</item>
+        <item>Твердый белок, твердый желток</item>
+    </string-array>
+</resources>

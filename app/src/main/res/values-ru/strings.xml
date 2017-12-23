@@ -1,13 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Обожаю яйца!</string>
     <string name="navigation_recipes_text">РЕЦЕПТ</string>
     <string name="navigation_timer_text">ТАЙМЕР</string>
     <string name="navigation_info_text">ИНФО</string>
-    <string name="main_timer_text" translatable="false">00:00</string>
     <string name="how_to_cook_egg_text">Как сварить яйцо?</string>
     <string name="reset_timer_button_text">СБРОСИТЬ ТАЙМЕР</string>
     <string name="start_timer_button_text">НАЧАТЬ ВАРКУ</string>
-    <string name="zero_timer_text">0:00</string>
     <string name="timer_prev_text_running">Вынимайте через:</string>
     <string name="timer_prev_text_finish">Вынимайте!</string>
     <string name="timer_prev_text_reset">Таймер был сброшен</string>
@@ -21,12 +20,12 @@
     <string name="recipe3">3) Ставим на средний огонь</string>
     <string name="recipe4">4) Начнет закипать - ВКЛЮЧАЕМ ТАЙМЕР</string>
     <string name="recipe5">5) После варки охладите яйца под краном</string>
-    <string name="recipe6">6) Наслаждаемся!</string>
     <string name="advice_title">Советы:</string>
     <string name="advice1">Проколите тупой конец яйца иголкой, чтобы оно не треснуло во время варки</string>
     <string name="advice2">Скорлупа будет хорошо отделяться, если после варки яйца надколоть, а затем опустить в холодную воду.</string>
-    <string name="advice3">Можно легко отличить вареное яйцо от сырого, не разбивая скорлупы,
-        если вращать его на столе. Вареное яйцо будет крутиться, а сырое, сделав один-два оборота, остановится</string>
+    <string name="advice3">Можно легко отличить вареное яйцо от сырого, не разбивая скорлупы, если вращать его на столе. Вареное яйцо будет крутиться, а сырое, сделав один-два оборота, остановится</string>
+    <string name="recipe6">6) Наслаждаемся!</string>
+    <string name="zero_timer_text">0:00</string>
     <string name="info_title">В 100гр яиц содержится:</string>
     <string name="app_version">v. 1.0</string>
     <string name="info_calories_title">Калории (ккал):</string>
