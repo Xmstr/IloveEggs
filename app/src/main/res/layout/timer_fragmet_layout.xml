@@ -26,8 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginBottom="30dp"
+        android:layout_marginEnd="20dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -116,6 +117,22 @@
             android:textSize="15sp"/>
     </RelativeLayout>
 
+    <CheckBox
+        android:id="@+id/checkBox_big_egg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-12dp"
+        android:layout_alignStart="@+id/seekBar"
+        android:layout_below="@+id/seekBar"
+        android:text="Яйца большие" />
+
+    <CheckBox
+        android:id="@+id/checkBox_fresh_egg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkBox_big_egg"
+        android:layout_below="@+id/checkBox_big_egg"
+        android:text="Яйца свежие" />
 
 
 </RelativeLayout>

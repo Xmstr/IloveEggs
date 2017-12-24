@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -36,11 +38,14 @@ public class TimerFragment extends Fragment {
     TextView timerTextView;
     TextView timerPrevTextView;
     ImageView picOfEgg;
+    CheckBox bigEggCheckBox;
+    CheckBox freshEggCheckBox;
     FancyButton startTimerButton;
     CountDownTimer eggCountDownTimer;
     Boolean counterIsActive = false;
     int currentBoilTime = 5000;
     long currentTimeLeft = 0;
+    int boilTimeModifier = 0;
     Resources resources;
 
     private static final String ARG_TEXT = "arg_text";
@@ -50,7 +55,11 @@ public class TimerFragment extends Fragment {
     public final int BOIL_TIME_2 = 300000;
     public final int BOIL_TIME_3 = 540000;
     public final int BOIL_TIME_4 = 660000;
-    public final int BOIL_TIME_TEST = 7000;
+    public final int ADDITIONAL_BOIL_TIME_BIG_EGG = 30000;
+    public final int ADDITIONAL_BOIL_TIME_FRESH_EGG = 30000;
+
+    //
+    //public final int BOIL_TIME_TEST = 7000;
 
     public static TimerFragment newInstance(String name) {
         TimerFragment frag = new TimerFragment();
@@ -96,6 +105,8 @@ public class TimerFragment extends Fragment {
         //startTimerButton = new FancyButton(getContext());
         timerTextView = rootView.findViewById(R.id.textView_timer);
         timerPrevTextView = rootView.findViewById(R.id.textView_timerPrevText);
+        bigEggCheckBox = rootView.findViewById(R.id.checkBox_big_egg);
+        freshEggCheckBox = rootView.findViewById(R.id.checkBox_fresh_egg);
 
         // SEEKBAR
         eggSeekBar = rootView.findViewById(R.id.seekBar);
@@ -114,6 +125,25 @@ public class TimerFragment extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        // CHECKBOXES
+
+        bigEggCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    updateTimerText(getFinalBoilTime());
+                } else updateTimerText(getFinalBoilTime());
+            }
+        });
+        freshEggCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    updateTimerText(getFinalBoilTime());
+                } else updateTimerText(getFinalBoilTime());
             }
         });
 
@@ -144,7 +174,7 @@ public class TimerFragment extends Fragment {
             counterIsActive = true;
             setControlsLocked(true);
             timerPrevTextView.setText(R.string.timer_prev_text_running);
-            eggCountDownTimer = new CountDownTimer(currentBoilTime + 50, 1000) {
+            eggCountDownTimer = new CountDownTimer(getFinalBoilTime() + 50, 1000) {
                 @Override
                 public void onTick(long millsUntilFinished) {
                     Log.i("TIMER", "Timer ticked");
@@ -168,6 +198,19 @@ public class TimerFragment extends Fragment {
             resetTimer();
             timerPrevTextView.setText(R.string.timer_prev_text_reset);
         }
+    }
+
+    private int getFinalBoilTime() {
+        int finalBoilTime;
+        boilTimeModifier = 0;
+        if (bigEggCheckBox.isChecked()){
+            boilTimeModifier = boilTimeModifier + ADDITIONAL_BOIL_TIME_BIG_EGG;
+        }
+        if (freshEggCheckBox.isChecked()){
+            boilTimeModifier = boilTimeModifier + ADDITIONAL_BOIL_TIME_FRESH_EGG;
+        }
+        finalBoilTime = currentBoilTime + boilTimeModifier;
+        return finalBoilTime;
     }
 
     // END OF TIMER
@@ -196,7 +239,7 @@ public class TimerFragment extends Fragment {
             @Override
             public void run() {
                 timerTextView.setTextColor(resources.getColor(android.R.color.black));
-                updateTimerText(currentBoilTime);
+                updateTimerText(getFinalBoilTime());
                 setControlsLocked(false);
                 startTimerButton.setEnabled(true);
                 timerPrevTextView.setText(R.string.timer_prev_text_default);
@@ -233,7 +276,7 @@ public class TimerFragment extends Fragment {
             case 0:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 currentBoilTime = BOIL_TIME_1;
-                updateTimerText(currentBoilTime);
+                updateTimerText(getFinalBoilTime());
                 typeOfCookTextView.setText(cookTypeArray[0]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[0]);
                 picOfEgg.setImageResource(R.drawable.egg1_done);
@@ -242,7 +285,7 @@ public class TimerFragment extends Fragment {
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 // TESTING BOIL TIME
                 currentBoilTime = BOIL_TIME_2;
-                updateTimerText(currentBoilTime);
+                updateTimerText(getFinalBoilTime());
                 typeOfCookTextView.setText(cookTypeArray[1]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[1]);
                 picOfEgg.setImageResource(R.drawable.egg2_done);
@@ -250,7 +293,7 @@ public class TimerFragment extends Fragment {
             case 2:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 currentBoilTime = BOIL_TIME_3;
-                updateTimerText(currentBoilTime);
+                updateTimerText(getFinalBoilTime());
                 typeOfCookTextView.setText(cookTypeArray[2]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[2]);
                 picOfEgg.setImageResource(R.drawable.egg3_done);
@@ -258,7 +301,7 @@ public class TimerFragment extends Fragment {
             case 3:
                 Log.i("COOK CHOOSING", "Choosed cook type: " + progress);
                 currentBoilTime = BOIL_TIME_4;
-                updateTimerText(currentBoilTime);
+                updateTimerText(getFinalBoilTime());
                 typeOfCookTextView.setText(cookTypeArray[3]);
                 descriptionOfEggTypeTextView.setText(descriptionTypeArray[3]);
                 picOfEgg.setImageResource(R.drawable.egg4_done);

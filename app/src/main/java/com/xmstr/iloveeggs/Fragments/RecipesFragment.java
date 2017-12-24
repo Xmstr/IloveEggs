@@ -35,6 +35,5 @@ public class RecipesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.recipes_fragmet_layout, container, false);
         return rootView;
-
     }
 }
