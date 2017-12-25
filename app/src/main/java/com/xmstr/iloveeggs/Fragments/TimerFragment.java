@@ -218,9 +218,13 @@ public class TimerFragment extends Fragment {
     private void setControlsLocked(boolean isControlsLocked) {
         if (isControlsLocked) {
             eggSeekBar.setEnabled(false);
+            bigEggCheckBox.setEnabled(false);
+            freshEggCheckBox.setEnabled(false);
             startTimerButton.setText(resources.getString(R.string.reset_timer_button_text));
         } else {
             eggSeekBar.setEnabled(true);
+            bigEggCheckBox.setEnabled(true);
+            freshEggCheckBox.setEnabled(true);
             startTimerButton.setText(resources.getString(R.string.start_timer_button_text));
         }
 

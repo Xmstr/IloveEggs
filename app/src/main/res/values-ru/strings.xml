@@ -4,8 +4,8 @@
     <string name="navigation_recipes_text">РЕЦЕПТ</string>
     <string name="navigation_timer_text">ТАЙМЕР</string>
     <string name="navigation_info_text">ИНФО</string>
-    <string name="how_to_cook_egg_text">Как сварить яйцо?</string>
-    <string name="reset_timer_button_text">СБРОСИТЬ ТАЙМЕР</string>
+    <string name="how_to_cook_egg_text">Как сварить яйца?</string>
+    <string name="reset_timer_button_text">СБРОСИТЬ</string>
     <string name="start_timer_button_text">НАЧАТЬ ВАРКУ</string>
     <string name="timer_prev_text_running">Вынимайте через:</string>
     <string name="timer_prev_text_finish">Вынимайте!</string>
@@ -29,7 +29,7 @@
     <string name="info_title">В 100гр яиц содержится:</string>
     <string name="app_version">v. 1.0</string>
     <string name="info_calories_title">Калории (ккал):</string>
-    <string name="info_calories_content">155-159</string>
+    <string name="info_calories_content">155–159</string>
     <string name="info_fibre_title">Белки (гр):</string>
     <string name="info_fibre_content">12,7</string>
     <string name="info_fat_title">Жиры (гр):</string>
@@ -50,12 +50,15 @@
     <string name="app_intro_title">Таймер варки яиц</string>
     <string name="app_intro_title2">Обожаю яйца!</string>
     <string name="app_intro_description">Таймер поможет Вам легко сварить яйца до нужной готовности. Воспользуйтесь ползунком и выберете свой вариант</string>
+    <string name="checkbox_big_eggs">Яйца крупные</string>
+    <string name="checkbox_fresh_eggs">Яйца свежие</string>
+    <string name="fresh_eggs_note_4_days">(до 4 дней)</string>
 
     <string-array name="type_of_cook">
-        <item>"Всмятку"</item>
-        <item>"В мешочек"</item>
-        <item>"Вкрутую</item>
-        <item>"Вкрутую +"</item>
+        <item>Всмятку</item>
+        <item>В мешочек</item>
+        <item>Вкрутую</item>
+        <item>Вкрутую +</item>
     </string-array>
     <string-array name="description_of_cook">
         <item>Приготовленный белок, желток полностью жидкий</item>

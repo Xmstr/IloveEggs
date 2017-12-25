@@ -5,7 +5,7 @@
     <string name="navigation_timer_text">TIMER</string>
     <string name="navigation_info_text">INFO</string>
     <string name="how_to_cook_egg_text">How do you want your eggs?</string>
-    <string name="reset_timer_button_text">RESET TIMER</string>
+    <string name="reset_timer_button_text">RESET</string>
     <string name="start_timer_button_text">START BOIL</string>
     <string name="timer_prev_text_reset">Timer has been reset</string>
     <string name="timer_prev_text_default">Time left after boil</string>
@@ -29,7 +29,7 @@
     <string name="info_title">In 100gr of eggs:</string>
     <string name="app_version">v. 1.0</string>
     <string name="info_calories_title">Calories (kcal):</string>
-    <string name="info_calories_content">155-159</string>
+    <string name="info_calories_content">155–159</string>
     <string name="info_fibre_title">Proteins (gr):</string>
     <string name="info_fibre_content">12,7</string>
     <string name="info_fat_title">Fats (gr):</string>
@@ -50,10 +50,13 @@
     <string name="app_intro_title">Want some eggs?</string>
     <string name="app_intro_title2">I love eggs!</string>
     <string name="app_intro_description">The timer will help you to easily weld the eggs to the desired readiness. Use the slider and choose your own version</string>
+    <string name="checkbox_big_eggs">Eggs are big</string>
+    <string name="checkbox_fresh_eggs">Eggs are fresh</string>
+    <string name="fresh_eggs_note_4_days">(4 days max)</string>
 
     <string-array name="type_of_cook">
         <item>Soft boiled</item>
-        <item>"Soft boiled +</item>
+        <item>Soft boiled +</item>
         <item>Hard boiled</item>
         <item>Hard boiled +</item>
     </string-array>

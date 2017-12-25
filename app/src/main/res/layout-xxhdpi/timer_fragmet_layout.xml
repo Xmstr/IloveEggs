@@ -30,8 +30,8 @@
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="20dp"
         android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="20dp"
         android:paddingTop="10dp"
         fancy:fb_borderColor="@color/primary_text"
         fancy:fb_borderWidth="2dp"
@@ -62,7 +62,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/main_timer_text"
         android:textColor="@android:color/black"
-        android:textSize="70sp" />
+        android:textSize="100sp" />
 
     <TextView
         android:id="@+id/textView_chooseEggType"
@@ -72,7 +72,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:text="@string/how_to_cook_egg_text"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -104,7 +104,7 @@
             android:text="@string/placeholder_text"
             android:textAlignment="viewStart"
             android:textColor="@color/primary_text"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView_descriptionOfCook"
@@ -114,27 +114,30 @@
             android:layout_below="@+id/textView_typeOfCook"
             android:text="@string/placeholder_text"
             android:textAlignment="viewStart"
-            android:textSize="15sp"/>
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <CheckBox
         android:id="@+id/checkBox_big_egg"
-        android:textColor="@color/primary_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-12dp"
         android:layout_alignStart="@+id/seekBar"
         android:layout_below="@+id/seekBar"
-        android:text="@string/checkbox_big_eggs" />
+        android:layout_marginTop="-13dp"
+        android:text="@string/checkbox_big_eggs"
+        android:textColor="@color/primary_text"
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkBox_fresh_egg"
-        android:textColor="@color/primary_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/checkBox_big_egg"
         android:layout_below="@+id/checkBox_big_egg"
-        android:text="@string/checkbox_fresh_eggs" />
+        android:text="@string/checkbox_fresh_eggs"
+        android:textColor="@color/primary_text"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textView_fresh_eggs_note"
         android:layout_width="wrap_content"

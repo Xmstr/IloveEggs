@@ -30,8 +30,8 @@
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="20dp"
         android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="20dp"
         android:paddingTop="10dp"
         fancy:fb_borderColor="@color/primary_text"
         fancy:fb_borderWidth="2dp"
@@ -62,7 +62,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/main_timer_text"
         android:textColor="@android:color/black"
-        android:textSize="70sp" />
+        android:textSize="80sp" />
 
     <TextView
         android:id="@+id/textView_chooseEggType"
@@ -122,10 +122,11 @@
         android:textColor="@color/primary_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-12dp"
         android:layout_alignStart="@+id/seekBar"
         android:layout_below="@+id/seekBar"
-        android:text="@string/checkbox_big_eggs" />
+        android:layout_marginTop="-12dp"
+        android:text="@string/checkbox_big_eggs"
+        android:textSize="16sp" />
 
     <CheckBox
         android:id="@+id/checkBox_fresh_egg"
@@ -134,7 +135,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/checkBox_big_egg"
         android:layout_below="@+id/checkBox_big_egg"
-        android:text="@string/checkbox_fresh_eggs" />
+        android:text="@string/checkbox_fresh_eggs"
+        android:textSize="16sp" />
+
     <TextView
         android:id="@+id/textView_fresh_eggs_note"
         android:layout_width="wrap_content"
