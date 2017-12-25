@@ -28,7 +28,7 @@
     <string name="advice3">Можно легко отличить вареное яйцо от сырого, не разбивая скорлупы,
         если вращать его на столе. Вареное яйцо будет крутиться, а сырое, сделав один-два оборота, остановится</string>
     <string name="info_title">В 100гр яиц содержится:</string>
-    <string name="app_version">v. 1.0</string>
+    <string name="app_version">version</string>
     <string name="info_calories_title">Калории (ккал):</string>
     <string name="info_calories_content">155–159</string>
     <string name="info_fibre_title">Белки (гр):</string>
